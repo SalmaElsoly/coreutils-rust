@@ -4,7 +4,7 @@ use std::{fs::File, io::Read};
 #[derive(Parser)]
 struct Args{
     #[arg(short,default_value_t=10)]
-    number:usize,
+    number:u64,
 
     file: String
 }
@@ -20,14 +20,17 @@ fn main() {
         Ok(str)=>str,
         Err(_)=>panic!("could not read file")
     };
-    let file_content: Vec<&str> = file_content.split_terminator("/n").collect();
-    let length: usize = match file_content.len().try_into(){
+    let file_content: Vec<&str> = file_content.split_terminator("\n").collect();
+    let length: u64 = match file_content.len().try_into(){
         Ok(len)=>len,
         Err(_)=> panic!("could not convert length to u64")
     };
+    let mut i: u64= if length > args.number{args.number}else{length};
 
-    while args.number != 0 && length-args.number > 0{
-        println!("{}", file_content[length-args.number])
-    }
+    while i != 0{
+        let index = length.abs_diff(i);
+        println!("{}", file_content[index as usize]);
+        i -= 1;
+    };
     
 }

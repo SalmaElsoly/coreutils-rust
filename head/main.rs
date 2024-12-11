@@ -20,7 +20,7 @@ fn main() {
         Ok(str)=>str,
         Err(_)=>panic!("could not read file")
     };
-    let file_lines: Vec<&str> = file_content.split_terminator("/n").collect();
+    let file_lines: Vec<&str> = file_content.split_terminator("\n").collect();
     let lines: usize = match args.number.try_into() {
         Ok(lines)=>lines,
         Err(_)=> panic!("could not convert usize to u64")
