@@ -13,3 +13,8 @@ path = "./head/main.rs"
 [[bin]]
 name = "tail"
 path = "./tail/main.rs"
+
+[[bin]]
+name = "wc"
+path = "./wc/main.rs"
+
