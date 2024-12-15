@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.5.23", features = ["derive"] }
+log = "0.4.22"
 
 [[bin]]
 name = "head"
@@ -13,3 +14,20 @@ path = "./head/main.rs"
 [[bin]]
 name = "tail"
 path = "./tail/main.rs"
+
+[[bin]]
+name = "wc"
+path = "./wc/main.rs"
+
+[[bin]]
+name = "cat"
+path = "./cat/main.rs"
+
+[[bin]]
+name = "echo"
+path = "./echo/main.rs"
+
+[[bin]]
+name = "tree"
+path = "./tree/main.rs"
+
